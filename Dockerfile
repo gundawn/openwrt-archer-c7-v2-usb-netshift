@@ -87,14 +87,24 @@ CONFIG_PACKAGE_kmod-sched-cake=y
 CONFIG_PACKAGE_sqm-scripts=y
 CONFIG_PACKAGE_luci-app-sqm=y
 CONFIG_PACKAGE_etherwake=y
-CONFIG_PACKAGE_kmod-wireguard=y
-CONFIG_PACKAGE_wireguard-tools=y
-CONFIG_PACKAGE_luci-proto-wireguard=y
 CONFIG_PACKAGE_dnsmasq-full=y
 CONFIG_PACKAGE_dnsmasq-full-dhcpv6=y
 CONFIG_PACKAGE_luci-ssl=y
 CONFIG_MBEDTLS_SSL_PROTO_TLS1_3=y
 CONFIG_OPENSSL_WITH_TLS13=y
+# USB / extroot support
+CONFIG_PACKAGE_block-mount=y
+CONFIG_PACKAGE_kmod-usb-core=y
+CONFIG_PACKAGE_kmod-usb2=y
+CONFIG_PACKAGE_kmod-usb-storage=y
+CONFIG_PACKAGE_kmod-fs-ext4=y
+CONFIG_PACKAGE_e2fsprogs=y
+# Netshift dependencies (kernel modules only — userspace ставится после)
+CONFIG_PACKAGE_kmod-nft-tproxy=y
+CONFIG_PACKAGE_kmod-nft-socket=y
+CONFIG_PACKAGE_kmod-nft-core=y
+CONFIG_PACKAGE_kmod-tun=y
+CONFIG_PACKAGE_kmod-inet-diag=y
 EOF
 
 RUN make defconfig && \
